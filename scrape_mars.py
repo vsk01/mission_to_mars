@@ -22,7 +22,7 @@ def scrape_all():
     browser = Browser("chrome", executable_path="chromedriver", headless=True)
     news_title, news_paragraph = news_about_mars(browser)
 
-    # Run all scraping functions and store in dictionary.
+    # create dictionary to store and send to MongoDB.
     data = {
         "news_title": news_title,
         "news_paragraph": news_paragraph,
@@ -33,7 +33,7 @@ def scrape_all():
         "last_modified": dt.datetime.now()
     }
 
-    # Stop webdriver and return data
+    # Once data is sucessfully retrieved close the browser
     browser.quit()
     return data
 
@@ -204,7 +204,7 @@ def scrape_mars_hemispheres(browser):
         # Return mars_data dictionary 
         return hemisphere_image_urls
     finally:
-
+        #if anything fails , close browser
         browser.quit()    
 
 if __name__ == "__main__":
