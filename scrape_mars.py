@@ -27,7 +27,7 @@ def scrape_all():
         "news_title": news_title,
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
-        # "hemispheres": scrape_mars_hemispheres(browser),
+        "hemispheres": scrape_mars_hemispheres(browser),
         "weather": twitter_weather(browser),
         "facts": scrape_mars_facts(),
         "last_modified": dt.datetime.now()
